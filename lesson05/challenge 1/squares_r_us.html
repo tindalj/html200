@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squares 'R Us'</title>
+
+</head>
+<body>
+  <h1>Squares 'R Us</h1>
+  <br><br><br><br>
+  <button id="squareButton">Square a Number</button>
+  <br>
+  <br>
+  <br>
+  <br>
+  <button id="multiplyButton" class="button">Multiply Two Numbers</button>
+
+  <script>
+    function squareNumber() {
+      let number;
+      while (true) {
+        let userInput = prompt("What number would you like squared?");
+        if (userInput === null) {
+          return; // Do nothing if user clicked "Cancel"
+        }
+
+        // Check if the input contains only numbers
+        if (/^[0-9.]+$/.test(userInput)) {
+          number = parseFloat(userInput);
+          let result = number * number;
+          alert("The square of " + number + " is " + result);
+          break; // Exit the loop if a valid number is entered
+        } else {
+          userInput = prompt("Invalid input. Please enter a valid number."); // Show error message
+          if (userInput === null) {
+            return; // Do nothing if user clicked "Cancel" on the error message prompt
+          }
+        }
+      }
+    }
+
+    function multiplyNumbers() {
+      let firstNumber = prompt("Enter the first number:");
+      if (firstNumber === null) {
+        return; // Do nothing if user clicked "Cancel"
+      }
+
+      let secondNumber = prompt("Enter the second number:");
+      if (secondNumber === null) {
+        return; // Do nothing if user clicked "Cancel"
+      }
+
+      let result = parseFloat(firstNumber) * parseFloat(secondNumber);
+      alert("The result of multiplying " + firstNumber + " and " + secondNumber + " is " + result);
+    }
+
+    document.getElementById("squareButton").addEventListener("click", squareNumber);
+    document.getElementById("multiplyButton").addEventListener("click", multiplyNumbers);
+  </script>
+
+</body>
+</html>
